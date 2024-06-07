@@ -1,6 +1,34 @@
 import NavBar from '../components/nav.jsx'
 import Footer from '../components/footer.jsx'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 function Marketplace () {
+    const farmerDatas = [
+        {   
+            id: 0,
+           farmerName: 'Marco Domino',
+           image: "/Images/farmer1.jpg",
+           product: "Sugar",
+           pratices: ["Soil Management", " Nutrient Management", "Irrigation", " Water Management", " Interculture & Weed Control", " Maturity & Harvesting", " Integrated pest & disease", " Management of rational crop"]
+        },
+        {   
+            id: 1,
+           farmerName: 'Collins Morre',
+           image: "/Images/farmer3.jpg",
+           product: "Cocoa",
+           pratices: ["Soil Management", " Nutrient Management", " Irrigation", " Water Management", " Interculture & Weed Control", " Maturity & Harvesting", " Integrated pest & disease", " Management of rational crop"]
+        },
+        {   
+            id: 2,
+           farmerName: 'Andre James',
+           image: "/Images/farmer4.jpg",
+           product: "Plaintain",
+           pratices: ["Soil Management", " Nutrient Management", " Irrigation", " Water Management", " Interculture & Weed Control", " Maturity & Harvesting", " Integrated pest & disease", " Management of rational crop"]
+        }
+    ]
     return (
         <>
             <NavBar/>
@@ -23,6 +51,42 @@ function Marketplace () {
                     </div>
                 </div>
             </div>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{delay: 1500,disableOnInteraction: false,}}
+                pagination={{clickable: true,}}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper pt-[10px]"
+                >
+                <div className='mt-[10px]'>
+                    <SwiperSlide className=''>
+                        <div className='flex justify-center items-center flex-col'>
+                            <img className='w-[23%] object-contain rounded-md' src={farmerDatas[0].image} alt="" />
+                            <h2 className='mb-[2px] mt-[5px] text-[27px]'>{farmerDatas[0].farmerName}</h2>
+                            <h3 className='font-bold'>Pratices : {farmerDatas[0].product}</h3>
+                            <p className='w-[35%] mt-[20px] mb-[30px] text-center'>{farmerDatas[0].pratices}</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className=''>
+                        <div className='flex justify-center items-center flex-col'>
+                            <img className='w-[23%] object-contain rounded-md' src={farmerDatas[1].image} alt="" />
+                            <h2 className='mb-[2px] mt-[5px] text-[27px]'>{farmerDatas[1].farmerName}</h2>
+                            <h3 className='font-bold'>Pratices  : {farmerDatas[1].product}</h3>
+                            <p className='w-[35%] mt-[20px] mb-[30px] text-center'>{farmerDatas[1].pratices}</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className=''>
+                        <div className='flex justify-center items-center flex-col'>
+                            <img className='w-[23%] object-contain rounded-md' src={farmerDatas[2].image} alt="" />
+                            <h2 className='mb-[2px] mt-[5px] text-[27px]'>{farmerDatas[2].farmerName}</h2>
+                            <h3 className='font-bold'>Pratices  : {farmerDatas[2].product}</h3>
+                            <p className='w-[35%] mt-[20px] mb-[30px] text-center'>{farmerDatas[0].pratices}</p>
+                        </div>
+                    </SwiperSlide>
+                </div>
+            </Swiper>
             <div className="grid grid-cols-2 gap-4 mt-[30px] ml-[50px] sm:grid-cols-1 lg:grid-cols-2">
                 <div className="">
                     <h1 className='text-[35px] font-semibold mb-[20px] sm:text-[30px] lg:text-[35px]'>Agrix finance</h1>
